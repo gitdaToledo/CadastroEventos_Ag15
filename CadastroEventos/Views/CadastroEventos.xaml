@@ -20,8 +20,9 @@
 
         <Frame BackgroundColor="{StaticResource PrimaryDark}">
             <VerticalStackLayout >
-                <Label Text="Nome do Evento: " FontFamily="OldTT"  FontSize="20" Grid.Row="0"/>
-                <Entry BackgroundColor="{StaticResource Gray200}" Grid.Row="1"  Grid.Column="0" x:Name="nome_evento" Completed="nome_evento_Completed"/>
+                <Label Text="Evento: "  FontSize="15" Grid.Row="0"/>
+                <Entry Placeholder="ex. Festa, Casamento, etc" PlaceholderColor="LightSlateGray" BackgroundColor="{StaticResource Gray200}" 
+                       Grid.Row="1"  Grid.Column="0" x:Name="nome_evento" />
 
                 
                 
@@ -44,28 +45,35 @@
          Minimum="1" Maximum="20" Increment="1"/>
                 </Grid>
 
-                <Picker x:Name="pck_local" BackgroundColor="{StaticResource Gray200}"  Title="Escolha o Local:"/>
+                <Picker x:Name="pck_local" BackgroundColor="{StaticResource Gray200}"  
+                        Title="Escolha o Local:" ItemDisplayBinding="{Binding Descricao}"/>
 
                 <Frame Padding="10" Margin="10" BackgroundColor="{StaticResource PrimaryDark}">
                     <VerticalStackLayout>
                         <Label Text="Período do Evento: "/>
 
                         <HorizontalStackLayout >
-                            <Label Text="Horário de Início:" />
+                            <Label Text="Início:" />
                             <TimePicker x:Name="hora_inicio" Format="HH:mm"/>
                         </HorizontalStackLayout>
 
                         <HorizontalStackLayout>
-                            <Label Text="Horário Final :"/>
+                            <Label Text="Final :"/>
                             <TimePicker x:Name="hora_final" Format="HH:mm"/>
                         </HorizontalStackLayout>
+
+
+                        <Label Text="Data do Evento: "/>
+                        <Frame Padding="10" Margin="5" BackgroundColor="{StaticResource PrimaryDark}">
+
+                            <DatePicker x:Name="pck_data" DateSelected="pck_data_DateSelected" Format="dd/MM/yyyy" />
+
+                        </Frame>
                     </VerticalStackLayout>
                 </Frame>
-
-
-                <Button Text="CONCLUIR" Clicked="Button_Clicked"/>
+      
+        <Button Text="CONCLUIR" Clicked="Button_Clicked"/>
             </VerticalStackLayout>
-
 
         </Frame>
     </VerticalStackLayout>

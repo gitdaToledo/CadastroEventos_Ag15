@@ -10,7 +10,7 @@ namespace CadastroEventos
         {
             Descricao = "Pitangueras, Guarujá",
             ValorAdultos= 300.0,
-            Valorcrianca = 2500.0
+            Valorcrianca = 250.0
         },
            new Local()
            {
@@ -36,8 +36,8 @@ namespace CadastroEventos
         {
             var window = base.CreateWindow(activationState);
 
-            window.Width = 400;
-            window.Height = 600;
+            window.Width = 450;
+            window.Height = 700;
 
             return window;
 

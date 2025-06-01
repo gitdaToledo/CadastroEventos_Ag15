@@ -16,13 +16,50 @@
 
     <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="10">
 
-        <Label Text="Informações da Contratação" FontFamily="OldTTBold" 
+        <Label Text="Informações da Contratação" FontFamily="OldTTBold"  HorizontalTextAlignment="Center"
                FontSize="45" TextColor="White"/>
-        
-        <Frame BackgroundColor="{StaticResource PrimaryDark}">
-            <HorizontalStackLayout>
-                
-            </HorizontalStackLayout>
-        </Frame>
+
+        <Label Text="{Binding EnderecoSelecionado.Descricao}" 
+FontSize="30" FontFamily="OldTT" Margin="5" TextColor="White"  HorizontalTextAlignment="Center" />
+
+        <Frame Margin="10" BackgroundColor="{StaticResource PrimaryDark}">
+
+            <StackLayout  Orientation="Horizontal">
+                <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Adultos: " />
+                    <Label Text="{Binding QttAdultos}" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Crianças: " />
+                    <Label Text="{Binding Qttcrianca}" />
+                </HorizontalStackLayout>
+            </StackLayout>
+            </Frame>
+
+                <Frame Margin="5" BackgroundColor="{StaticResource PrimaryDark}">
+                    <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *, *">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Início: "/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="Fim: "/>
+                        <Label Grid.Row="0" Grid.Column="2" Text="Data: "/>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="{Binding HrInicioSelecionada, StringFormat='{}{0:hh:mm tt}'} " />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding HrFinalSelecionada, StringFormat='{}{0:hh:mm tt}'} "/>
+                        <Label Grid.Row="1" Grid.Column="2" Text="{Binding DataSelecionada, StringFormat='{}{0:dd/MM/yyyy}'} "/>
+                    </Grid>
+                </Frame>
+
+
+        <Frame Margin="10" BackgroundColor="{StaticResource PrimaryDark}">
+                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                        <Label Text="Valor Total: "/>
+                        <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'}" />
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Button Text="CONFIRMAR" FontSize="15"  HorizontalOptions="Center" Clicked="Button_Clicked"/>
+
+            
     </VerticalStackLayout>
+    
 </ContentPage>
