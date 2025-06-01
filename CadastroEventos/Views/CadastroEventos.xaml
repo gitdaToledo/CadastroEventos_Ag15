@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CadastroEventos.Views.CadastroEventos"
+             Title="CadastroEventos"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="{StaticResource MidnightBlue}" Offset="0.3"/>
+            <GradientStop Color="DeepPink" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    
+    
+
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="10">
+       
+        <Label Text="Cadastro de Eventos" FontFamily="OldTTBold" FontSize="45" TextColor="White"/>
+
+        <Frame BackgroundColor="{StaticResource PrimaryDark}">
+            <VerticalStackLayout >
+                <Label Text="Nome do Evento: " FontFamily="OldTT"  FontSize="20" Grid.Row="0"/>
+                <Entry BackgroundColor="{StaticResource Gray200}" Grid.Row="1"  Grid.Column="0" x:Name="nome_evento" Completed="nome_evento_Completed"/>
+
+                
+                
+                
+                <Grid Margin="5" RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*,*,2*" >
+                    
+                    <Label Text="Adultos: " Grid.Row="0" Grid.Column="0"/>
+
+                    <Label  Grid.Row="0" Grid.Column="1" Text="{Binding Value}" 
+                            BindingContext="{x:Reference stp_adultos}"/>
+                    <Stepper Grid.Row="0" Grid.Column="2" x:Name="stp_adultos"
+                             Minimum="10" Maximum="200" Increment="10"/>
+
+
+                    <Label Text="Crianças: " Grid.Row="1" Grid.Column="0"/>
+
+                    <Label  Grid.Row="1" Grid.Column="1" Text="{Binding Value}" 
+        BindingContext="{x:Reference stp_criancas}"/>
+                    <Stepper Grid.Row="1" Grid.Column="2" x:Name="stp_criancas"
+         Minimum="1" Maximum="20" Increment="1"/>
+                </Grid>
+
+                <Picker x:Name="pck_local" BackgroundColor="{StaticResource Gray200}"  Title="Escolha o Local:"/>
+
+                <Frame Padding="10" Margin="10" BackgroundColor="{StaticResource PrimaryDark}">
+                    <VerticalStackLayout>
+                        <Label Text="Período do Evento: "/>
+
+                        <HorizontalStackLayout >
+                            <Label Text="Horário de Início:" />
+                            <TimePicker x:Name="hora_inicio" Format="HH:mm"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout>
+                            <Label Text="Horário Final :"/>
+                            <TimePicker x:Name="hora_final" Format="HH:mm"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+
+                <Button Text="CONCLUIR" Clicked="Button_Clicked"/>
+            </VerticalStackLayout>
+
+
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>
